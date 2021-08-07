@@ -1,0 +1,72 @@
+<H1>User details</H1>
+<HR>
+<table>
+    <tr>
+        <td>
+            First Name
+        </td>
+        <td>
+            <input id="username" type="text" [(ngModel)]="user.Firstname">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Token
+        </td>
+        <td>
+            <input id="token" type="text" [(ngModel)]="user.Token">
+        </td>
+    </tr>
+</table>
+<HR>
+    <H1>
+        Person  List
+    </H1>
+    <table id="PersonLs"  >
+        <tr>
+        <td *ngFor="let col of columns">
+            {{col}}
+          </td>
+        </tr>
+        <tr *ngFor="let per of PersonLs">
+            <td>{{ per.idCard }}</td>
+            <td>{{ per.firstname }}</td>
+            <td>{{ per.lastname }}</td>
+            <td class="Alink" (click)="Edit(per.idCard)"> Edit </td>
+            <td class="Alink" (click)="Delete(per.idCard)" > Delete </td>
+        </tr>
+        
+      
+      </table>
+
+      <H1>
+        Person  process
+    </H1>     
+    <table>
+        <tr>
+            <td>
+                ID Card1
+            </td><td>
+                <input id="IdCard" type="text" [(ngModel)]="person.idCard" [readonly]="IsEdit">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                First Name
+            </td><td>
+                <input id="First Name" type="text" [(ngModel)]="person.firstname">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Last Name
+            </td><td>
+                <input id="Last Name" type="text" [(ngModel)]="person.lastname">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"  style="text-align: center;">
+                <input id="IdCard" type="button" value="Save" (click)="save()" >
+            </td> 
+        </tr>
+    </table>
